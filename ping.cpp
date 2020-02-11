@@ -41,9 +41,9 @@ struct ping_pkt
 #endif
 
 
-#include "dns_utils.h"
-#include "ICMP_socket.h"
-#include "utils.h"
+#include "header/dns_utils.h"
+#include "header/ICMP_socket.h"
+#include "header/utils.h"
 
 // infinite ping loop
 int pingloop = 1;
