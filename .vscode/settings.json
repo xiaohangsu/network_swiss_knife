@@ -1,0 +1,8 @@
+{
+        "files.associations": {
+                "string": "cpp",
+                "locale": "cpp",
+                "__config": "cpp",
+                "__nullptr": "cpp"
+        }
+}
