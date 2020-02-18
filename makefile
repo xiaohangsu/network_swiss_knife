@@ -2,7 +2,10 @@ CXX = g++
 ping: ping.cpp
 	$(CXX) ping.cpp -o ping
 
-all: ping
+nslookup: nslookup.cpp
+	$(CXX) nslookup.cpp -o nslookup
+
+all: ping, nslookup
 
 clean:
-	rm ping
+	rm -f ping nslookup
