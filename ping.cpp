@@ -70,7 +70,7 @@ void send_ping(const sockaddr_in* ping_addr, const char* ping_dom, const char* p
 #if defined(__APPLE__) && defined(__MACH__)
 		pckt.hdr.icmp_type = ICMP_ECHO;
 		pckt.hdr.icmp_id = getpid();
-        	for (int i = 0; i < sizeof(pckt.msg) - 1; i++ )
+        	for (int i = 0; i < sizeof(pckt.msg) - 1; i++)
             		pckt.msg[i] = i + '0';
 
         	pckt.msg[sizeof(pckt.msg) - 1] = 0;
@@ -79,10 +79,10 @@ void send_ping(const sockaddr_in* ping_addr, const char* ping_dom, const char* p
 #elif __linux__
 		pckt.hdr.type = ICMP_ECHO;
 		pckt.hdr.un.echo.id = getpid();
-		for ( i = 0; i < sizeof(pckt.msg)-1; i++ )
-		pckt.msg[i] = i+'0';
+		for (int i = 0; i < sizeof(pckt.msg)-1; i++)
+		pckt.msg[i] = i + '0';
 
-		pckt.msg[i] = 0;
+		pckt.msg[sizeof(pckt.msg) - 1] = 0;
 		pckt.hdr.un.echo.sequence = msg_count++;
 		pckt.hdr.checksum = checksum(&pckt, sizeof(pckt));
 #endif
